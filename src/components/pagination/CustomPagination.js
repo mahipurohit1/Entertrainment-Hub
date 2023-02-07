@@ -1,11 +1,18 @@
 import React from "react";
 import Pagination from "@mui/material/Pagination";
+import { createTheme, ThemeProvider } from "@mui/material";
 
 function CustomPagination(props) {
   const pageHandler = (e) => {
     props.setPage(e.target.textContent);
     window.scroll(0, 0);
   };
+  const darkTheme = createTheme({
+    palette: {
+      type: "dark",
+    },
+  });
+
   return (
     <div
       style={{
@@ -15,13 +22,15 @@ function CustomPagination(props) {
         marginTop: "20px",
       }}
     >
-      <Pagination
-        count={props.numOfPages || 10}
-        color="primary"
-        onChange={pageHandler}
-        hidePrevButton
-        hideNextButton
-      />
+      <ThemeProvider theme={darkTheme}>
+        <Pagination
+          count={props.numOfPages || 10}
+          color="primary"
+          onChange={pageHandler}
+          hidePrevButton
+          hideNextButton
+        />
+      </ThemeProvider>
     </div>
   );
 }
