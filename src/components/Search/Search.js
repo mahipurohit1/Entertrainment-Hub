@@ -1,11 +1,12 @@
 import React from "react";
+
 import Container from "@mui/material/Container";
-function TvSeries() {
+function Search() {
   return (
     <div className="app">
-      <Container>TvSeries</Container>
+      <Container>Search</Container>
     </div>
   );
 }
 
-export default TvSeries;
+export default Search;

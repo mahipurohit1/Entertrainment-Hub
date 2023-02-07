@@ -1,17 +1,20 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Movies from "./components/Movies/Movies";
-import Trending from "./components/Trending/Trending";
-import TvSeries from "./components/TvSeries/TvSeries";
+
+import MoviesPage from "./Pages/MoviesPage";
 import RootPage from "./Pages/RootPage";
+import SearchPage from "./Pages/SearchPage";
+import TrendingPage from "./Pages/TrendingPage";
+import TvSeriesPage from "./Pages/TvSeriesPage";
 
 const router = createBrowserRouter([
   {
     path: "",
     element: <RootPage></RootPage>,
     children: [
-      { index: true, element: <Trending></Trending> },
-      { path: "/movies", element: <Movies></Movies> },
-      { path: "/tvSeries", element: <TvSeries></TvSeries> },
+      { index: true, element: <TrendingPage></TrendingPage> },
+      { path: "/movies", element: <MoviesPage></MoviesPage> },
+      { path: "/tvSeries", element: <TvSeriesPage></TvSeriesPage> },
+      { path: "/Search", element: <SearchPage></SearchPage> },
     ],
   },
 ]);

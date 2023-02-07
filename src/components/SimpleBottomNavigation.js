@@ -6,6 +6,7 @@ import WhatshotIcon from "@mui/icons-material/Whatshot";
 import MovieCreationIcon from "@mui/icons-material/MovieCreation";
 import SearchIcon from "@mui/icons-material/Search";
 import TvIcon from "@mui/icons-material/Tv";
+import { Link } from "react-router-dom";
 
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
@@ -14,7 +15,6 @@ export default function SimpleBottomNavigation() {
     <Box
       sx={{
         width: "100%",
-        color: "white",
         position: "fixed",
         bottom: 0,
         zIndex: 100,
@@ -27,10 +27,40 @@ export default function SimpleBottomNavigation() {
           setValue(newValue);
         }}
       >
-        <BottomNavigationAction label="Trandings" icon={<WhatshotIcon />} />
-        <BottomNavigationAction label="Movies" icon={<MovieCreationIcon />} />
-        <BottomNavigationAction label="Tv Series" icon={<TvIcon />} />
-        <BottomNavigationAction label="Search" icon={<SearchIcon />} />
+        <BottomNavigationAction
+          label="Trandings"
+          icon={
+            <Link to="/" style={{ color: "#39445a" }}>
+              {" "}
+              <WhatshotIcon />{" "}
+            </Link>
+          }
+        />{" "}
+        <BottomNavigationAction
+          label="Movies"
+          icon={
+            <Link to="/movies" style={{ color: "#39445a" }}>
+              <MovieCreationIcon />{" "}
+            </Link>
+          }
+        />
+        <BottomNavigationAction
+          label="Tv Series"
+          icon={
+            <Link to="/tvSeries" style={{ color: "#39445a" }}>
+              <TvIcon />{" "}
+            </Link>
+          }
+        />
+        <BottomNavigationAction
+          label="Search"
+          icon={
+            <Link to="/search" style={{ color: "#39445a" }}>
+              {" "}
+              <SearchIcon />
+            </Link>
+          }
+        />
       </BottomNavigation>
     </Box>
   );

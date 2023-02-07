@@ -1,7 +1,12 @@
 import React from "react";
+import Movies from "../components/Movies/Movies";
 
 function MoviesPage() {
-  return <div>MoviesPage</div>;
+  return (
+    <div>
+      <Movies />
+    </div>
+  );
 }
 
 export default MoviesPage;
