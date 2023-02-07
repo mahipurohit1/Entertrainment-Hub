@@ -1,4 +1,4 @@
-import { Chip } from "@mui/material";
+import { Chip, createTheme, ThemeProvider } from "@mui/material";
 import axios from "axios";
 import React, { useEffect } from "react";
 
@@ -38,7 +38,14 @@ function Genres({
     };
     // eslint-disable-next-line
   }, []);
-
+  const darkTheme = createTheme({
+    palette: {
+      type: "dark",
+      primary: {
+        main: "#fff",
+      },
+    },
+  });
   return (
     <div style={{ padding: "6px 0", color: "white" }}>
       {selectedGenres &&
@@ -53,17 +60,20 @@ function Genres({
             onDelete={() => handleRemove(genre)}
           />
         ))}
-      {genres &&
-        genres.map((genre) => (
-          <Chip
-            style={{ margin: 2 }}
-            label={genre.name}
-            key={genre.id}
-            clickable
-            size="small"
-            onClick={() => handleAdd(genre)}
-          />
-        ))}
+      <ThemeProvider theme={darkTheme}>
+        {genres &&
+          genres.map((genre) => (
+            <Chip
+              style={{ margin: 2 }}
+              label={genre.name}
+              key={genre.id}
+              clickable
+              size="small"
+              color="primary"
+              onClick={() => handleAdd(genre)}
+            />
+          ))}
+      </ThemeProvider>
     </div>
   );
 }

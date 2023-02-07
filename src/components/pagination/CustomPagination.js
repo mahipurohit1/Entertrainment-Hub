@@ -10,6 +10,9 @@ function CustomPagination(props) {
   const darkTheme = createTheme({
     palette: {
       type: "dark",
+      primary: {
+        main: "#fff",
+      },
     },
   });
 
