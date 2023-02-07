@@ -2,10 +2,11 @@ import React from "react";
 import Badge from "@mui/material/Badge";
 import { img_300, unavailable } from "../Config/Config";
 import "./SingleMovie.css";
+import ContentModal from "./ContentModal/ContentModal";
 
 function SingleMovie(props) {
   return (
-    <div className="media">
+    <ContentModal media_type={props.media_type} id={props.id}>
       <Badge
         badgeContent={`${props.vote_average.toFixed(2)}⭐`}
         color={props.vote_average > 6 ? "primary" : "secondary"}
@@ -20,7 +21,7 @@ function SingleMovie(props) {
         {props.media_type === "tv" ? "TV Series" : "Movie"}
         <span className="subTitle">{props.date}</span>
       </span>
-    </div>
+    </ContentModal>
   );
 }
 
